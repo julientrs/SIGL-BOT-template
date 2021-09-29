@@ -27,7 +27,6 @@ async def pong(ctx):
 async def name(ctx):
     await ctx.send(ctx.author.name)
 
-
 @bot.command()
 async def count(ctx):
     online = 0
@@ -44,7 +43,6 @@ async def count(ctx):
         elif str(member.status) == 'dnd':
             dnd+= 1
     await ctx.send("{} are online, {} are offline, {} are idle and {} don't want to be disturbed!".format(online, offline, idle, dnd))
-
 
 @bot.command()
 async def admin(ctx, arg):
@@ -65,12 +63,15 @@ async def admin(ctx, arg):
                 await member.add_roles(role)
             return 
 
-
 @bot.command()
 async def xkcd(ctx):
     rd = random.randint(1, 2500)
     path = 'https://xkcd.com/{}/'.format(rd)
     await ctx.send(path)
+
+@bot.command()
+async def git(ctx):
+    await ctx.send('https://github.com/julientrs/SIGL-BOT-template')
 
 load_dotenv()
 token = os.getenv('DISCORD_TOKEN')
